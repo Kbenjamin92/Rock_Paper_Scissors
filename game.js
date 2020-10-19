@@ -26,30 +26,58 @@ TODO LIST
 
 */ 
 
-const game = (playersChoice) => {
-    let rock = "Rock";
-    let paper = "Paper";
-    let scissors = "Scissors";
 
-    let options = [rock, paper, scissors];
-    let computersChoice = options[Math.floor(Math.random() * options.length)];
+
+// The computers random selection
+let options = ["Rock", "Paper", "Scissors"];
+let computersChoice = options[Math.floor(Math.random() * options.length)];
+
+const game = (rock, paper, scissors) => {
+    if(rock) {
+        console.log('I pick rock');
+    } else if (paper) {
+        console.log('I pick paper');
+    } else if (scissors) {
+        console.log('I pick scissors')
+    }
 }
 
-
+// rock paper
 const rock = document.querySelector(".player-rock").addEventListener("click", () => {
     let rock = document.createElement("p");
     rock.textContent = "Rock"
     document.querySelector(".player-score").append(rock);
 
+    let computersSelection = document.createElement("p");
+    computersSelection.textContent = computersChoice
+    document.querySelector(".computer-score").append(computersSelection);
+
+    game(rock, null, null);
+
 });
+// papers button
 const paper =  document.querySelector(".player-paper").addEventListener("click", () => {
     let paper = document.createElement("p");
     paper.textContent = "Paper"
     document.querySelector(".player-score").append(paper);
+
+    let computersSelection = document.createElement("p");
+    computersSelection.textContent = computersChoice
+    document.querySelector(".computer-score").append(computersSelection);
+
+    game(null, paper, null);
+
 });
+// scissors button
 const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
     let scissors = document.createElement("p");
     scissors.textContent = "Scissor"
     document.querySelector(".player-score").append(scissors);
+
+    let computersSelection = document.createElement("p");
+    computersSelection.textContent = computersChoice
+    document.querySelector(".computer-score").append(computersSelection);
+
+    game(null, null, scissors);
 });
 

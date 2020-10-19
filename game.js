@@ -1,19 +1,17 @@
-// store the score in an object or an array
-const score = {
-    computerScore: 0,
-    playerScore: 0
-};
+let playerScore = 0;
+let computerScore = 0;
+
 // player score
 let player = document.createElement("span");
 player.setAttribute("class", "player-point");
-player.textContent = score.playerScore
+player.textContent = playerScore
 document.querySelector(".player-score").append(player);
 
 // computer score
 let computer = document.createElement("span");
 computer.setAttribute("class", "player-point");
-computer.textContent = score.computerScore
-document.querySelector(".player-score").append(computer);
+computer.textContent = computerScore
+document.querySelector(".computer-score").append(computer);
 
 // Restart the game option which returns the score to 0
 // The game is best of 3 tries
@@ -65,6 +63,9 @@ const paper =  document.querySelector(".player-paper").addEventListener("click",
     computersSelection.textContent = computersChoice
     document.querySelector(".computer-score").append(computersSelection);
 
+    game(null, paper, null);
+
+
 });
 // scissors button, generates random computer logic
 const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
@@ -76,30 +77,32 @@ const scissors = document.querySelector(".player-scissors").addEventListener("cl
     computersSelection.textContent = computersChoice
     document.querySelector(".computer-score").append(computersSelection);
 
+    game(null, null, scissors);
+
 });
 
 const game = (rock, paper, scissors) => {
 
     if(computersChoice === options[0] && paper) {
-        let playerPoint = document.createElement("span");
-        playerPoint.textContent = score.playerScore++
-        document.querySelector(".player-point").append(playerPoint);
+        // let playerPoint = document.createElement("span");
+        player.textContent = playerScore + 1
+        document.querySelector(".player-score").append(player);
     }
-
+    // duplicate choices functionality 
     if (computersChoice === options[0] && rock) {
-        let rockDraw = document.createElement("p");
+        let rockDraw = document.createElement("h1");
         rockDraw.textContent = "Draw"
-        document.querySelector(".restart").append(rockDraw);
+        document.querySelector(".score").append(rockDraw);
 
     } else if (computersChoice === options[1] && paper) {
-        let paperDraw = document.createElement("p");
+        let paperDraw = document.createElement("h1");
         paperDraw.textContent = "Draw"
-        document.querySelector(".restart").append(paperDraw);
+        document.querySelector(".score").append(paperDraw);
 
     } else if (computersChoice === options[3] && scissors) {
-        let scissorsDraw = document.createElement("p");
+        let scissorsDraw = document.createElement("h1");
         scissorsDraw.textContent = "Draw"
-        document.querySelector(".restart").append(scissorsDraw);
+        document.querySelector(".score").append(scissorsDraw);
     }
 }
 

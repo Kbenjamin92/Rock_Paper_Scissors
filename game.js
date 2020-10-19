@@ -34,6 +34,9 @@ TODO LIST
 
     use textContent and append to change the values on the html page
 
+    computer only randomly selects option after refresh
+        - make computer randomly select after click
+
 */ 
 
 // The computers random selection
@@ -90,11 +93,11 @@ const game = (rock, paper, scissors) => {
 
     } else if (computersChoice === options[0] && scissors) {
         computer.textContent = computerScore + 1
-        document.querySelector(".player-score").append(computer);
+        document.querySelector(".computer-score").append(computer);
 
     } else if (computersChoice === options[1] && rock) {
         computer.textContent = computerScore + 1
-        document.querySelector(".player-score").append(computer);
+        document.querySelector(".computer-score").append(computer);
 
     } else if (computersChoice === options[1] && scissors) {
         player.textContent = playerScore + 1
@@ -106,11 +109,9 @@ const game = (rock, paper, scissors) => {
 
     } else if (computersChoice === options[2] && paper) {
         computer.textContent = computerScore + 1
-        document.querySelector(".player-score").append(computer);
+        document.querySelector(".computer-score").append(computer);
     }
     
-    
-
     
     // duplicate choices functionality 
     if (computersChoice === options[0] && rock) {

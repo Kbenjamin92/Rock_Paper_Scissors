@@ -87,7 +87,31 @@ const game = (rock, paper, scissors) => {
         // let playerPoint = document.createElement("span");
         player.textContent = playerScore + 1
         document.querySelector(".player-score").append(player);
+
+    } else if (computersChoice === options[0] && scissors) {
+        computer.textContent = computerScore + 1
+        document.querySelector(".player-score").append(computer);
+
+    } else if (computersChoice === options[1] && rock) {
+        computer.textContent = computerScore + 1
+        document.querySelector(".player-score").append(computer);
+
+    } else if (computersChoice === options[1] && scissors) {
+        player.textContent = playerScore + 1
+        document.querySelector(".player-score").append(player);
+
+    } else if (computersChoice === options[2] && rock) {
+        player.textContent = playerScore + 1
+        document.querySelector(".player-score").append(player);
+
+    } else if (computersChoice === options[2] && paper) {
+        computer.textContent = computerScore + 1
+        document.querySelector(".player-score").append(computer);
     }
+    
+    
+
+    
     // duplicate choices functionality 
     if (computersChoice === options[0] && rock) {
         let rockDraw = document.createElement("h1");
@@ -99,7 +123,7 @@ const game = (rock, paper, scissors) => {
         paperDraw.textContent = "Draw"
         document.querySelector(".score").append(paperDraw);
 
-    } else if (computersChoice === options[3] && scissors) {
+    } else if (computersChoice === options[2] && scissors) {
         let scissorsDraw = document.createElement("h1");
         scissorsDraw.textContent = "Draw"
         document.querySelector(".score").append(scissorsDraw);

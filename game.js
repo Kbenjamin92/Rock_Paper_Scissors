@@ -1,20 +1,32 @@
-let playerScore = 0;
-let computerScore = 0;
+// let playerScore = 0;
+// let computerScore = 0;
+let score = {
+    playerScore: 0,
+    computerScore: 0
+}
+ 
 
 // player score
 let player = document.createElement("span");
 player.setAttribute("class", "player-point");
-player.textContent = playerScore
+player.textContent = score.playerScore
 document.querySelector(".player-score").append(player);
 
 // computer score
 let computer = document.createElement("span");
 computer.setAttribute("class", "player-point");
-computer.textContent = computerScore
+computer.textContent = score.computerScore
 document.querySelector(".computer-score").append(computer);
 
 // Restart the game option which returns the score to 0
-// The game is best of 3 tries
+const restartGame = document.querySelector(".restart").addEventListener("click", () => {
+    // player score
+    player.textContent = score.playerScore = 0;
+// computer score
+    computer.textContent = score.computerScore = 0; 
+    
+});
+// The game is best of 3 tries add that functionality, use a for loop to perfrom this action
 
 /*
 TODO LIST 
@@ -26,16 +38,14 @@ TODO LIST
     -- Create the computer logic that randomly choses 
     rock, paper, scissors
 
-    write a function that choses the computers decision 
-    randomly after the player has chosen his selection.
-
     Make the score display the condion of who beats who 
     in regards to the condition of rock paper and scissors
 
-    use textContent and append to change the values on the html page
-
     computer only randomly selects option after refresh
         - make computer randomly select after click
+
+    create a next round button to clear the output so the old output doesn't stay on the page 
+    for the next selection.
 
 */ 
 
@@ -87,33 +97,25 @@ const scissors = document.querySelector(".player-scissors").addEventListener("cl
 const game = (rock, paper, scissors) => {
 
     if(computersChoice === options[0] && paper) {
-        // let playerPoint = document.createElement("span");
-        player.textContent = playerScore + 1
-        document.querySelector(".player-score").append(player);
+        player.textContent = score.playerScore++ + 1;
 
     } else if (computersChoice === options[0] && scissors) {
-        computer.textContent = computerScore + 1
-        document.querySelector(".computer-score").append(computer);
+        computer.textContent = score.computerScore++ + 1
 
     } else if (computersChoice === options[1] && rock) {
-        computer.textContent = computerScore + 1
-        document.querySelector(".computer-score").append(computer);
+        computer.textContent = score.computerScore++ + 1
 
     } else if (computersChoice === options[1] && scissors) {
-        player.textContent = playerScore + 1
-        document.querySelector(".player-score").append(player);
+        player.textContent = score.playerScore++ + 1
 
     } else if (computersChoice === options[2] && rock) {
-        player.textContent = playerScore + 1
-        document.querySelector(".player-score").append(player);
+        player.textContent = score.playerScore++ + 1
 
     } else if (computersChoice === options[2] && paper) {
-        computer.textContent = computerScore + 1
-        document.querySelector(".computer-score").append(computer);
+        computer.textContent = score.computerScore++ + 1
     }
     
-    
-    // duplicate choices functionality 
+    // functionality for duplicate choses 
     if (computersChoice === options[0] && rock) {
         let rockDraw = document.createElement("h1");
         rockDraw.textContent = "Draw"
@@ -129,5 +131,7 @@ const game = (rock, paper, scissors) => {
         scissorsDraw.textContent = "Draw"
         document.querySelector(".score").append(scissorsDraw);
     }
+
+    
 }
 

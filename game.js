@@ -1,11 +1,8 @@
-// let playerScore = 0;
-// let computerScore = 0;
 let score = {
     playerScore: 0,
     computerScore: 0
 }
  
-
 // player score
 let player = document.createElement("span");
 player.setAttribute("class", "player-point");
@@ -26,7 +23,9 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
     computer.textContent = score.computerScore = 0; 
 
     let playerList = document.querySelector("#list-player-choice")
-    playerList.removeChild(rock);
+    let computerList = document.querySelector("#list-computer-choice")
+
+    location.reload();
     
 });
 // The game is best of 3 tries add that functionality, use a for loop to perfrom this action
@@ -50,50 +49,58 @@ TODO LIST
     create a next round button to clear the output so the old output doesn't stay on the page 
     for the next selection.
 
+    remove the last choice from the screen once a new choice is chosen
+
+    find a way to remove the text off the page without having to refresh the page to get the html
+    tags back on the page for the values to stay
+
 */ 
 
 // The computers random selection
 let options = ["Rock", "Paper", "Scissors"];
 let computersChoice = options[Math.floor(Math.random() * options.length)];
 
+// create element for computer output
+let computerSelection = document.createElement("p");
+    document.querySelector("#list-computer-choice").append(computerSelection);
+
+    console.log(computerSelection);
+
+let playerSelection = document.createElement("p");
+    document.querySelector("#list-player-choice").append(playerSelection);
+
+
 // rock button, generates random computer logic
 const rock = document.querySelector(".player-rock").addEventListener("click", () => {
-    let rock = document.createElement("li");
-    rock.textContent = "Rock"
-    document.querySelector("#list-player-choice").append(rock);
+    playerSelection.textContent = "Rock"
 
-    let computersSelection = document.createElement("li");
-    computersSelection.textContent = computersChoice
-    document.querySelector("#list-computer-choice").append(computersSelection);
-
+    let test = computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
+console.log(test)
     game(rock, null, null);
 
 });
+
 // papers button, generates random computer logic
 const paper =  document.querySelector(".player-paper").addEventListener("click", () => {
-    let paper = document.createElement("li");
-    paper.textContent = "Paper"
-    document.querySelector("#list-player-choice").append(paper);
+    playerSelection.textContent = "Paper"
 
-    let computersSelection = document.createElement("li");
-    computersSelection.textContent = computersChoice
-    document.querySelector("#list-computer-choice").append(computersSelection);
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
 
     game(null, paper, null);
 });
 // scissors button, generates random computer logic
 const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
-    let scissors = document.createElement("li");
-    scissors.textContent = "Scissor"
-    document.querySelector("#list-player-choice").append(scissors);
+    playerSelection.textContent = "Scissors"
 
-    let computersSelection = document.createElement("li");
-    computersSelection.textContent = computersChoice
-    document.querySelector("#list-computer-choice").append(computersSelection);
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
 
     game(null, null, scissors);
 
 });
+
+/* UPDATE THE GAME FUNCTION TO THE NEW CODE ABOVE
+    FIX THE CONDITION BELOW
+*/
 
 const game = (rock, paper, scissors) => {
     // functionality for the game

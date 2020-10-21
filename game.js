@@ -58,7 +58,6 @@ TODO LIST
 
 // The computers random selection
 const options = ["Rock", "Paper", "Scissors"];
-let computersChoice = options[Math.floor(Math.random() * options.length)];
 
 // create element for computer output
 let computerSelection = document.createElement("p");
@@ -66,15 +65,11 @@ let computerSelection = document.createElement("p");
 
 let playerSelection = document.createElement("p");
     document.querySelector("#list-player-choice").append(playerSelection);
-    // computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-
     
 // rock button, generates random computer logic
 const rock = document.querySelector(".player-rock").addEventListener("click", (e) => {
     playerSelection.textContent = "Rock"
-    // comLogic()
-    computerSelection.textContent = computersChoice
-
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(e, null, null);
 
 });
@@ -82,17 +77,13 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
 // papers button, generates random computer logic
 const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
     playerSelection.textContent = "Paper"
-
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-
     game(null, e, null);
 });
 // scissors button, generates random computer logic
 const scissors = document.querySelector(".player-scissors").addEventListener("click", (e) => {
     playerSelection.textContent = "Scissors"
-
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-
     game(null, null, e);
 
 });
@@ -102,42 +93,55 @@ const scissors = document.querySelector(".player-scissors").addEventListener("cl
 */
 
 const game = (rock, paper, scissors) => {
+
+     // functionality for duplicate choices
+    if (computerSelection.textContent === options[0] && rock) {
+        let rockDraw = document.createElement("h1");
+        rockDraw.setAttribute("class", "draw-text")
+        rockDraw.textContent = "Draw"
+        document.querySelector(".draw").append(rockDraw);
+
+    } else if (computerSelection.textContent === options[1] && paper) {
+        let paperDraw = document.createElement("h1");
+        paperDraw.setAttribute("class", "draw-text")
+        paperDraw.textContent = "Draw"
+        document.querySelector(".draw").append(paperDraw);
+
+    } else if (computerSelection.textContent === options[2] && scissors) {
+        let scissorsDraw = document.createElement("h1");
+        scissorsDraw.setAttribute("class", "draw-text")
+        scissorsDraw.textContent = "Draw"
+        document.querySelector(".draw").append(scissorsDraw);
+    }
+
+
     // functionality for the game
-    if(computersChoice === options[0] && paper) {
+    if(computerSelection.textContent === options[0] && paper) {
         player.textContent = score.playerScore++ + 1;
+        document.querySelector(".draw-text").remove()
 
-    } else if (computersChoice === options[0] && scissors) {
+    } else if (computerSelection.textContent === options[0] && scissors) {
         computer.textContent = score.computerScore++ + 1
+        document.querySelector(".draw-text").remove()
 
-    } else if (computersChoice === options[1] && rock) {
-        console.log('works');
+    } else if (computerSelection.textContent === options[1] && rock) {
         computer.textContent = score.computerScore++ + 1
+        document.querySelector(".draw-text").remove()
 
-    } else if (computersChoice === options[1] && scissors) {
+    } else if (computerSelection.textContent === options[1] && scissors) {
         player.textContent = score.playerScore++ + 1
+        document.querySelector(".draw-text").remove()
 
-    } else if (computersChoice === options[2] && rock) {
+    } else if (computerSelection.textContent === options[2] && rock) {
         player.textContent = score.playerScore++ + 1
+        document.querySelector(".draw-text").remove()
 
-    } else if (computersChoice === options[2] && paper) {
+
+    } else if (computerSelection.textContent === options[2] && paper) {
         computer.textContent = score.computerScore++ + 1
+        document.querySelector(".draw-text").remove()
+
     }
     
-    // functionality for duplicate choices
-    if (computersChoice === options[0] && rock) {
-        let rockDraw = document.createElement("h1");
-        rockDraw.textContent = "Draw"
-        document.querySelector(".score").append(rockDraw);
-
-    } else if (computersChoice === options[1] && paper) {
-        let paperDraw = document.createElement("h1");
-        paperDraw.textContent = "Draw"
-        document.querySelector(".score").append(paperDraw);
-
-    } else if (computersChoice === options[2] && scissors) {
-        let scissorsDraw = document.createElement("h1");
-        scissorsDraw.textContent = "Draw"
-        document.querySelector(".score").append(scissorsDraw);
-    }
 }
 

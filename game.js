@@ -57,44 +57,43 @@ TODO LIST
 */ 
 
 // The computers random selection
-let options = ["Rock", "Paper", "Scissors"];
+const options = ["Rock", "Paper", "Scissors"];
 let computersChoice = options[Math.floor(Math.random() * options.length)];
 
 // create element for computer output
 let computerSelection = document.createElement("p");
     document.querySelector("#list-computer-choice").append(computerSelection);
 
-    console.log(computerSelection);
-
 let playerSelection = document.createElement("p");
     document.querySelector("#list-player-choice").append(playerSelection);
+    // computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
 
-
+    
 // rock button, generates random computer logic
-const rock = document.querySelector(".player-rock").addEventListener("click", () => {
+const rock = document.querySelector(".player-rock").addEventListener("click", (e) => {
     playerSelection.textContent = "Rock"
+    // comLogic()
+    computerSelection.textContent = computersChoice
 
-    let test = computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-console.log(test)
-    game(rock, null, null);
+    game(e, null, null);
 
 });
 
 // papers button, generates random computer logic
-const paper =  document.querySelector(".player-paper").addEventListener("click", () => {
+const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
     playerSelection.textContent = "Paper"
 
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
 
-    game(null, paper, null);
+    game(null, e, null);
 });
 // scissors button, generates random computer logic
-const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
+const scissors = document.querySelector(".player-scissors").addEventListener("click", (e) => {
     playerSelection.textContent = "Scissors"
 
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
 
-    game(null, null, scissors);
+    game(null, null, e);
 
 });
 
@@ -111,6 +110,7 @@ const game = (rock, paper, scissors) => {
         computer.textContent = score.computerScore++ + 1
 
     } else if (computersChoice === options[1] && rock) {
+        console.log('works');
         computer.textContent = score.computerScore++ + 1
 
     } else if (computersChoice === options[1] && scissors) {

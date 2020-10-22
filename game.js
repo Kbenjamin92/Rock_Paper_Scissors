@@ -11,7 +11,7 @@ document.querySelector(".player-score").append(player);
 
 // computer score
 let computer = document.createElement("span");
-computer.setAttribute("class", "player-point");
+computer.setAttribute("class", "computer-point");
 computer.textContent = score.computerScore
 document.querySelector(".computer-score").append(computer);
 
@@ -71,6 +71,9 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
     playerSelection.textContent = "Rock"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(e, null, null);
+    console.log(playerPoints)
+    console.log(computerPoints)
+
 
 });
 
@@ -90,10 +93,21 @@ const scissors = document.querySelector(".player-scissors").addEventListener("cl
 
 /* UPDATE THE GAME FUNCTION TO THE NEW CODE ABOVE
     FIX THE CONDITION BELOW
+
+    delete draw msg when its not a draw
 */
+
+let drawClass = document.querySelectorAll(".draw");
+
+const removeFunction = () => {
+    for (let i = 0; i < drawClass[0].childNodes.length; i++) {
+        drawClass[0].childNodes[i].remove()
+    }
+}
 
 const game = (rock, paper, scissors) => {
 
+    console.log(drawClass[0].childNodes[1])
      // functionality for duplicate choices
     if (computerSelection.textContent === options[0] && rock) {
         let rockDraw = document.createElement("h1");
@@ -112,36 +126,61 @@ const game = (rock, paper, scissors) => {
         scissorsDraw.setAttribute("class", "draw-text")
         scissorsDraw.textContent = "Draw"
         document.querySelector(".draw").append(scissorsDraw);
-    }
+     } 
 
 
     // functionality for the game
     if(computerSelection.textContent === options[0] && paper) {
         player.textContent = score.playerScore++ + 1;
-        document.querySelector(".draw-text").remove()
-
-    } else if (computerSelection.textContent === options[0] && scissors) {
+        removeFunction()
+    } if (computerSelection.textContent === options[0] && scissors) {
         computer.textContent = score.computerScore++ + 1
-        document.querySelector(".draw-text").remove()
-
-    } else if (computerSelection.textContent === options[1] && rock) {
+        removeFunction()
+    } if (computerSelection.textContent === options[1] && rock) {
         computer.textContent = score.computerScore++ + 1
-        document.querySelector(".draw-text").remove()
-
-    } else if (computerSelection.textContent === options[1] && scissors) {
+        removeFunction()
+    } if (computerSelection.textContent === options[1] && scissors) {
         player.textContent = score.playerScore++ + 1
-        document.querySelector(".draw-text").remove()
-
-    } else if (computerSelection.textContent === options[2] && rock) {
+        removeFunction()
+    } if (computerSelection.textContent === options[2] && rock) {
         player.textContent = score.playerScore++ + 1
-        document.querySelector(".draw-text").remove()
-
-
-    } else if (computerSelection.textContent === options[2] && paper) {
+        removeFunction()
+    } if (computerSelection.textContent === options[2] && paper) {
         computer.textContent = score.computerScore++ + 1
-        document.querySelector(".draw-text").remove()
-
+        removeFunction()
     }
-    
+    // TEST FUNTIONS FOR THE DRAW OUTPUT!!
+    // document.querySelector(".remove").addEventListener("click", () => {
+    //     let drawClass = document.querySelectorAll(".draw")
+
+    //     for (let i = 0; i < drawClass[0].childNodes.length; i++) {
+    //         drawClass[0].childNodes[i].remove()
+    //     }
+    // })
 }
+let playerPoints = document.querySelector(".player-point");
+let computerPoints = document.querySelector(".computer-point");
+console.log(computerPoints)
+console.log(playerPoints)
+
+const winnerAndLoser = () => {
+    /*
+     FILL IN THE LOGIC HERE FOR DISPLAYING THE WINNER AND THE LOSER
+     WITH DISPLAYING THE BEST OF 5 WITH THE USER WITH THE HIGHER NUMBER WINS.
+    */ 
+   if (computerPoints <= 5 && playerPoints < computerPoints) {
+        let computerWinner = document.createElement("h1");
+        computerWinner.setAttribute("class", "computerWinner")
+        computerWinner.textContent = "You LOSE! Try Again"
+        document.querySelector(".score").append(computerWinner);
+
+   } else if (playerPoints <= 5 && computerPoints < playerPoints) {
+        let playerWinner = document.createElement("h1");
+        playerWinner.setAttribute("class", "playerWinner")
+        playerWinner.textContent = "You WIN!"
+        document.querySelector(".score").append(playerWinner);
+   }
+
+}
+winnerAndLoser();
 

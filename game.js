@@ -30,11 +30,11 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
     });
 //checks the score for the winner
    const checkScore = () => {
-        if (score.computerScore === 5 && score.playerScore < score.computerScore) {
+        if (score.computerScore >= 3) {
             document.querySelector(".computer-Winner").style.visibility = "visible"
-        } else if (score.playerScore === 5 && score.computerScore < score.playerScore) {
+        } else if (score.playerScore >= 3) {
             document.querySelector(".player-Winner").style.visibility = "visible"
-           }
+        }
    }
    
 
@@ -42,8 +42,6 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
 
 /*
 TODO LIST 
-    find the correct condtion for the winner and loser results best out of 5 trys
-    figure out the calculation for the game to end at 5!
     add a settimer function to delay the rock paper scissors output with the animation 
 */ 
 
@@ -101,7 +99,6 @@ const game = (rock, paper, scissors) => {
     } else if (computerSelection.textContent === options[2] && scissors) {
         document.querySelector(".draw").style.visibility = "visible"
     } 
-
 
     // functionality for the game
     if(computerSelection.textContent === options[0] && paper) {

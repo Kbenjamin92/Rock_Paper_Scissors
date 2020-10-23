@@ -1,0 +1,14 @@
+
+
+@media (min-width: 200px) {
+    .draw {
+        visibility: hidden;
+    }
+    .computer-Winner {
+        visibility: hidden;
+        color: aqua;
+    }
+    .player-Winner {
+        visibility: hidden;
+    }
+}

@@ -17,42 +17,38 @@ document.querySelector(".computer-score").append(computer);
 
 // Restart the game option which returns the score to 0
 const restartGame = document.querySelector(".restart").addEventListener("click", () => {
-// restart player score
-    player.textContent = score.playerScore = 0;
-// restart computer score
-    computer.textContent = score.computerScore = 0; 
+    // restart player score
+        player.textContent = score.playerScore = 0;
+    // restart computer score
+        computer.textContent = score.computerScore = 0; 
 
-    let playerList = document.querySelector("#list-player-choice")
-    let computerList = document.querySelector("#list-computer-choice")
+        //refresh the data
+        document.querySelector(".computers-choice").style.visibility = "hidden"
+        document.querySelector(".players-choice").style.visibility = "hidden"
 
-    location.reload();
-    
-});
-// The game is best of 3 tries add that functionality, use a for loop to perfrom this action
+        removeFunction();
+    });
+
+  /*
+     FILL IN THE LOGIC HERE FOR DISPLAYING THE WINNER AND THE LOSER
+     WITH DISPLAYING THE BEST OF 5 WITH THE USER WITH THE HIGHER NUMBER WINS.
+    */ 
+   
+   if (score.computerScore == 5) {
+    document.querySelector(".computer-Winner").style.visibility = "visible"
+    console.log('works')
+   }
+//    } else if (score.playerScore == 2) {
+//         document.querySelector(".player-Winner").style.visibility = "visible"
+//    }
+
+//setimer() function here for delayed result for user choices 
 
 /*
 TODO LIST 
-    -- create a condition where
-    rock beats scissors
-    scissors beats paper
-    paper beats rock
+   find the correct condtion for the winner and loser results best out of 5 trys
 
-    -- Create the computer logic that randomly choses 
-    rock, paper, scissors
-
-    Make the score display the condion of who beats who 
-    in regards to the condition of rock paper and scissors
-
-    computer only randomly selects option after refresh
-        - make computer randomly select after click
-
-    create a next round button to clear the output so the old output doesn't stay on the page 
-    for the next selection.
-
-    remove the last choice from the screen once a new choice is chosen
-
-    find a way to remove the text off the page without having to refresh the page to get the html
-    tags back on the page for the values to stay
+    add a settimer function to delay the rock paper scissors output with the animation 
 
 */ 
 
@@ -61,9 +57,11 @@ const options = ["Rock", "Paper", "Scissors"];
 
 // create element for computer output
 let computerSelection = document.createElement("p");
+    computerSelection.setAttribute("class", "computers-choice")
     document.querySelector("#list-computer-choice").append(computerSelection);
 
 let playerSelection = document.createElement("p");
+    playerSelection.setAttribute("class", "players-choice")
     document.querySelector("#list-player-choice").append(playerSelection);
     
 // rock button, generates random computer logic
@@ -71,62 +69,46 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
     playerSelection.textContent = "Rock"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(e, null, null);
-    console.log(playerPoints)
-    console.log(computerPoints)
-
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
+    //test winner loser score
+    console.log(computer.textContent)
 
 });
-
 // papers button, generates random computer logic
 const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
     playerSelection.textContent = "Paper"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(null, e, null);
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
 });
 // scissors button, generates random computer logic
 const scissors = document.querySelector(".player-scissors").addEventListener("click", (e) => {
     playerSelection.textContent = "Scissors"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(null, null, e);
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
 
 });
 
-/* UPDATE THE GAME FUNCTION TO THE NEW CODE ABOVE
-    FIX THE CONDITION BELOW
-
-    delete draw msg when its not a draw
-*/
-
-let drawClass = document.querySelectorAll(".draw");
-
+// Delete the draw text
 const removeFunction = () => {
-    for (let i = 0; i < drawClass[0].childNodes.length; i++) {
-        drawClass[0].childNodes[i].remove()
-    }
+    document.querySelector(".draw").style.visibility = "hidden"
 }
 
 const game = (rock, paper, scissors) => {
-
-    console.log(drawClass[0].childNodes[1])
      // functionality for duplicate choices
     if (computerSelection.textContent === options[0] && rock) {
-        let rockDraw = document.createElement("h1");
-        rockDraw.setAttribute("class", "draw-text")
-        rockDraw.textContent = "Draw"
-        document.querySelector(".draw").append(rockDraw);
+        document.querySelector(".draw").style.visibility = "visible"
 
     } else if (computerSelection.textContent === options[1] && paper) {
-        let paperDraw = document.createElement("h1");
-        paperDraw.setAttribute("class", "draw-text")
-        paperDraw.textContent = "Draw"
-        document.querySelector(".draw").append(paperDraw);
+        document.querySelector(".draw").style.visibility = "visible"
 
     } else if (computerSelection.textContent === options[2] && scissors) {
-        let scissorsDraw = document.createElement("h1");
-        scissorsDraw.setAttribute("class", "draw-text")
-        scissorsDraw.textContent = "Draw"
-        document.querySelector(".draw").append(scissorsDraw);
-     } 
+        document.querySelector(".draw").style.visibility = "visible"
+    } 
 
 
     // functionality for the game
@@ -149,38 +131,11 @@ const game = (rock, paper, scissors) => {
         computer.textContent = score.computerScore++ + 1
         removeFunction()
     }
-    // TEST FUNTIONS FOR THE DRAW OUTPUT!!
-    // document.querySelector(".remove").addEventListener("click", () => {
-    //     let drawClass = document.querySelectorAll(".draw")
-
-    //     for (let i = 0; i < drawClass[0].childNodes.length; i++) {
-    //         drawClass[0].childNodes[i].remove()
-    //     }
-    // })
+   
 }
-let playerPoints = document.querySelector(".player-point");
-let computerPoints = document.querySelector(".computer-point");
-console.log(computerPoints)
-console.log(playerPoints)
 
-const winnerAndLoser = () => {
-    /*
-     FILL IN THE LOGIC HERE FOR DISPLAYING THE WINNER AND THE LOSER
-     WITH DISPLAYING THE BEST OF 5 WITH THE USER WITH THE HIGHER NUMBER WINS.
-    */ 
-   if (computerPoints <= 5 && playerPoints < computerPoints) {
-        let computerWinner = document.createElement("h1");
-        computerWinner.setAttribute("class", "computerWinner")
-        computerWinner.textContent = "You LOSE! Try Again"
-        document.querySelector(".score").append(computerWinner);
 
-   } else if (playerPoints <= 5 && computerPoints < playerPoints) {
-        let playerWinner = document.createElement("h1");
-        playerWinner.setAttribute("class", "playerWinner")
-        playerWinner.textContent = "You WIN!"
-        document.querySelector(".score").append(playerWinner);
-   }
+  
 
-}
-winnerAndLoser();
+
 

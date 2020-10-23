@@ -28,19 +28,16 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
 
         removeFunction();
     });
-
-  /*
-     FILL IN THE LOGIC HERE FOR DISPLAYING THE WINNER AND THE LOSER
-     WITH DISPLAYING THE BEST OF 5 WITH THE USER WITH THE HIGHER NUMBER WINS.
-    */ 
-   
-   if (score.computerScore == 5) {
-    document.querySelector(".computer-Winner").style.visibility = "visible"
-    console.log('works')
+//checks the score for the winner
+   const checkScore = () => {
+        if (score.computerScore > 0 && score.computerScore <= 5 && score.playerScore < score.computerScore) {
+            document.querySelector(".computer-Winner").style.visibility = "visible"
+            console.log('works')
+        } else if (score.playerScore > 0 && score.playerScore <= 5 && score.computerScore < score.playerScore) {
+                document.querySelector(".player-Winner").style.visibility = "visible"
+           }
    }
-//    } else if (score.playerScore == 2) {
-//         document.querySelector(".player-Winner").style.visibility = "visible"
-//    }
+   
 
 //setimer() function here for delayed result for user choices 
 
@@ -71,9 +68,6 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
     game(e, null, null);
     document.querySelector(".computers-choice").style.visibility = "visible"
     document.querySelector(".players-choice").style.visibility = "visible"
-    //test winner loser score
-    console.log(computer.textContent)
-
 });
 // papers button, generates random computer logic
 const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
@@ -114,22 +108,28 @@ const game = (rock, paper, scissors) => {
     // functionality for the game
     if(computerSelection.textContent === options[0] && paper) {
         player.textContent = score.playerScore++ + 1;
-        removeFunction()
+        removeFunction();
+        checkScore();
     } if (computerSelection.textContent === options[0] && scissors) {
         computer.textContent = score.computerScore++ + 1
-        removeFunction()
+        removeFunction();
+        checkScore();
     } if (computerSelection.textContent === options[1] && rock) {
         computer.textContent = score.computerScore++ + 1
-        removeFunction()
+        removeFunction();
+        checkScore();
     } if (computerSelection.textContent === options[1] && scissors) {
         player.textContent = score.playerScore++ + 1
-        removeFunction()
+        removeFunction();
+        checkScore();
     } if (computerSelection.textContent === options[2] && rock) {
         player.textContent = score.playerScore++ + 1
-        removeFunction()
+        removeFunction();
+        checkScore();
     } if (computerSelection.textContent === options[2] && paper) {
         computer.textContent = score.computerScore++ + 1
-        removeFunction()
+        removeFunction();
+        checkScore();
     }
    
 }

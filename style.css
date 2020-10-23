@@ -6,7 +6,6 @@
     }
     .computer-Winner {
         visibility: hidden;
-        color: aqua;
     }
     .player-Winner {
         visibility: hidden;

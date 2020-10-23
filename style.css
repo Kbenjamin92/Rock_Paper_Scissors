@@ -10,4 +10,13 @@
     .player-Winner {
         visibility: hidden;
     }
+    .rock {
+        visibility: hidden;
+    }
+    .paper {
+        visibility: hidden;
+    }
+    .scissors {
+        visibility: hidden;
+    }
 }

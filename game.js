@@ -29,24 +29,45 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
         removeFunction();
     });
 //checks the score for the winner
-   const checkScore = () => {
-        if (score.computerScore >= 3) {
-            document.querySelector(".computer-Winner").style.visibility = "visible"
-        } else if (score.playerScore >= 3) {
-            document.querySelector(".player-Winner").style.visibility = "visible"
-        }
-   }
-   
+const checkScore = () => {
+    if (score.computerScore >= 3) {
+        document.querySelector(".computer-Winner").style.visibility = "visible"
+    } else if (score.playerScore >= 3) {
+        document.querySelector(".player-Winner").style.visibility = "visible"
+    }
+}
+
+// let count = setInterval(countDownToResults, 1000);
+
 
 //setimer() function here for delayed result for user choices 
+
+// const paperFunc = () => {
+//     document.querySelector(".paper").style.visibility = "visible"
+// }
+// const scissorsFunc = () => {
+//     document.querySelector(".scissors").style.visibility = "visible"
+// }
+
+
 
 /*
 TODO LIST 
     add a settimer function to delay the rock paper scissors output with the animation 
+    code 4 sec before the points hit the page
+    figure out the setInterval code
+
 */ 
 
 // The computers random selection
-const options = ["Rock", "Paper", "Scissors"];
+const options = ["ROCK", "PAPER", "SCISSORS"];
+
+const countFunc = () => {
+    options.forEach(item => {
+        console.log(item)
+    })
+
+}
 
 // create element for computer output
 let computerSelection = document.createElement("p");
@@ -56,9 +77,15 @@ let computerSelection = document.createElement("p");
 let playerSelection = document.createElement("p");
     playerSelection.setAttribute("class", "players-choice")
     document.querySelector("#list-player-choice").append(playerSelection);
+
+    
     
 // rock button, generates random computer logic
 const rock = document.querySelector(".player-rock").addEventListener("click", (e) => {
+    setInterval(countFunc, 2000);
+
+
+    //put below code in a timer function
     playerSelection.textContent = "Rock"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(e, null, null);
@@ -67,6 +94,7 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
 });
 // papers button, generates random computer logic
 const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
+
     playerSelection.textContent = "Paper"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(null, e, null);

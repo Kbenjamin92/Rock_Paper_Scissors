@@ -17,16 +17,16 @@ document.querySelector(".computer-score").append(computer);
 
 // Restart the game option which returns the score to 0
 const restartGame = document.querySelector(".restart").addEventListener("click", () => {
-    // restart player score
-        player.textContent = score.playerScore = 0;
-    // restart computer score
-        computer.textContent = score.computerScore = 0; 
-    //refresh the data
-        document.querySelector(".computers-choice").style.visibility = "hidden"
-        document.querySelector(".players-choice").style.visibility = "hidden"
-        document.querySelector(".player-Winner").style.visibility = "hidden"
-        document.querySelector(".computer-Winner").style.visibility = "hidden"
-        removeFunction();
+// restart player score
+    player.textContent = score.playerScore = 0;
+// restart computer score
+    computer.textContent = score.computerScore = 0; 
+//refresh the data
+    document.querySelector(".computers-choice").style.visibility = "hidden"
+    document.querySelector(".players-choice").style.visibility = "hidden"
+    document.querySelector(".player-Winner").style.visibility = "hidden"
+    document.querySelector(".computer-Winner").style.visibility = "hidden"
+    removeFunction();
     });
 //checks the score for the winner
 const checkScore = () => {

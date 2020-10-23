@@ -21,20 +21,19 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
         player.textContent = score.playerScore = 0;
     // restart computer score
         computer.textContent = score.computerScore = 0; 
-
-        //refresh the data
+    //refresh the data
         document.querySelector(".computers-choice").style.visibility = "hidden"
         document.querySelector(".players-choice").style.visibility = "hidden"
-
+        document.querySelector(".player-Winner").style.visibility = "hidden"
+        document.querySelector(".computer-Winner").style.visibility = "hidden"
         removeFunction();
     });
 //checks the score for the winner
    const checkScore = () => {
-        if (score.computerScore > 0 && score.computerScore <= 5 && score.playerScore < score.computerScore) {
+        if (score.computerScore === 5 && score.playerScore < score.computerScore) {
             document.querySelector(".computer-Winner").style.visibility = "visible"
-            console.log('works')
-        } else if (score.playerScore > 0 && score.playerScore <= 5 && score.computerScore < score.playerScore) {
-                document.querySelector(".player-Winner").style.visibility = "visible"
+        } else if (score.playerScore === 5 && score.computerScore < score.playerScore) {
+            document.querySelector(".player-Winner").style.visibility = "visible"
            }
    }
    
@@ -43,10 +42,9 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
 
 /*
 TODO LIST 
-   find the correct condtion for the winner and loser results best out of 5 trys
-
+    find the correct condtion for the winner and loser results best out of 5 trys
+    figure out the calculation for the game to end at 5!
     add a settimer function to delay the rock paper scissors output with the animation 
-
 */ 
 
 // The computers random selection

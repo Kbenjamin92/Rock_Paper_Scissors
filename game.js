@@ -42,7 +42,7 @@ const checkScore = () => {
 
 /*
 TODO LIST 
-    figure out how to add the game parameter to the settimeout function on each button
+
 */ 
 document.querySelector(".rock").style.visibility = "hidden"
 document.querySelector(".paper").style.visibility = "hidden"

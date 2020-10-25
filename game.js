@@ -104,32 +104,36 @@ let playerSelection = document.createElement("p");
     
 // rock button, generates random computer logic
 const rock = document.querySelector(".player-rock").addEventListener("click", (e) => {
-    setTimeout(function () {
-        runRockFunc(e)
-    }, 1000);
+    setTimeout(rockFunc, 1000)
     setTimeout(paperFunc, 2000);
     setTimeout(scissorsFunc, 3000);
-    setTimeout(rockFunc, 4000)
     setTimeout(hideMsg, 4000)
+    setTimeout(function () {
+        runRockLogic(e)
+    }, 4000);
 
 });
 // papers button, generates random computer logic
-const paper =  document.querySelector(".player-paper").addEventListener("click", () => {
+const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
     setTimeout(rockFunc, 1000);
     setTimeout(paperFunc, 2000);
     setTimeout(scissorsFunc, 3000);
-    setTimeout(runPaperLogic, 4000)
     setTimeout(hideMsg, 4000)
+    setTimeout(function () {
+        runPaperLogic(e)
+    }, 4000);
 
 
 });
 // scissors button, generates random computer logic
-const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
+const scissors = document.querySelector(".player-scissors").addEventListener("click", (e) => {
     setTimeout(rockFunc, 1000);
     setTimeout(paperFunc, 2000);
     setTimeout(scissorsFunc, 3000);
-    setTimeout(runScissorsLogic, 4000)
     setTimeout(hideMsg, 4000)
+    setTimeout(function () {
+        runScissorsLogic(e)
+    }, 4000);
 
 });
 

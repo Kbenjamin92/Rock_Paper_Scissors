@@ -27,6 +27,9 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
     document.querySelector(".player-Winner").style.visibility = "hidden"
     document.querySelector(".computer-Winner").style.visibility = "hidden"
     removeFunction();
+    document.querySelector(".rock").style.visibility = "hidden"
+    document.querySelector(".paper").style.visibility = "hidden"
+    document.querySelector(".scissors").style.visibility = "hidden"
     });
 //checks the score for the winner
 const checkScore = () => {
@@ -37,37 +40,57 @@ const checkScore = () => {
     }
 }
 
-// let count = setInterval(countDownToResults, 1000);
-
-
-//setimer() function here for delayed result for user choices 
-
-// const paperFunc = () => {
-//     document.querySelector(".paper").style.visibility = "visible"
-// }
-// const scissorsFunc = () => {
-//     document.querySelector(".scissors").style.visibility = "visible"
-// }
-
-
-
 /*
 TODO LIST 
-    add a settimer function to delay the rock paper scissors output with the animation 
-    code 4 sec before the points hit the page
-    figure out the setInterval code
-
+    figure out how to add the game parameter to the settimeout function on each button
 */ 
+document.querySelector(".rock").style.visibility = "hidden"
+document.querySelector(".paper").style.visibility = "hidden"
+document.querySelector(".scissors").style.visibility = "hidden"
 
 // The computers random selection
-const options = ["ROCK", "PAPER", "SCISSORS"];
-
-const countFunc = () => {
-    options.forEach(item => {
-        console.log(item)
-    })
-
+const options = ["ROCK","PAPER","SCISSORS"]
+  
+const rockFunc = () => {
+    document.querySelector(".rock").style.visibility = "visible"
 }
+const paperFunc = () => {
+    document.querySelector(".paper").style.visibility = "visible"
+}
+const scissorsFunc = () => {
+    document.querySelector(".scissors").style.visibility = "visible"
+}
+//logic to run the code after the rock paper scissors queue.
+const runRockLogic = (event) => {
+    playerSelection.textContent = "Rock"
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
+    game(event, null, null);
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
+}
+//run paper logic
+const runPaperLogic = (event) => {
+    playerSelection.textContent = "Paper"
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
+    game(null, event, null);
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
+}
+//run scissors logic
+const runScissorsLogic = (event) => {
+    playerSelection.textContent = "Scissors"
+    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
+    game(null, null, event);
+    document.querySelector(".computers-choice").style.visibility = "visible"
+    document.querySelector(".players-choice").style.visibility = "visible"
+}
+//hide the game msg
+const hideMsg = () => {
+    document.querySelector(".rock").style.visibility = "hidden"
+    document.querySelector(".paper").style.visibility = "hidden"
+    document.querySelector(".scissors").style.visibility = "hidden"
+}
+
 
 // create element for computer output
 let computerSelection = document.createElement("p");
@@ -79,35 +102,34 @@ let playerSelection = document.createElement("p");
     document.querySelector("#list-player-choice").append(playerSelection);
 
     
-    
 // rock button, generates random computer logic
 const rock = document.querySelector(".player-rock").addEventListener("click", (e) => {
-    setInterval(countFunc, 2000);
+    setTimeout(function () {
+        runRockFunc(e)
+    }, 1000);
+    setTimeout(paperFunc, 2000);
+    setTimeout(scissorsFunc, 3000);
+    setTimeout(rockFunc, 4000)
+    setTimeout(hideMsg, 4000)
 
-
-    //put below code in a timer function
-    playerSelection.textContent = "Rock"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(e, null, null);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
 });
 // papers button, generates random computer logic
-const paper =  document.querySelector(".player-paper").addEventListener("click", (e) => {
+const paper =  document.querySelector(".player-paper").addEventListener("click", () => {
+    setTimeout(rockFunc, 1000);
+    setTimeout(paperFunc, 2000);
+    setTimeout(scissorsFunc, 3000);
+    setTimeout(runPaperLogic, 4000)
+    setTimeout(hideMsg, 4000)
 
-    playerSelection.textContent = "Paper"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(null, e, null);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
+
 });
 // scissors button, generates random computer logic
-const scissors = document.querySelector(".player-scissors").addEventListener("click", (e) => {
-    playerSelection.textContent = "Scissors"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(null, null, e);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
+const scissors = document.querySelector(".player-scissors").addEventListener("click", () => {
+    setTimeout(rockFunc, 1000);
+    setTimeout(paperFunc, 2000);
+    setTimeout(scissorsFunc, 3000);
+    setTimeout(runScissorsLogic, 4000)
+    setTimeout(hideMsg, 4000)
 
 });
 

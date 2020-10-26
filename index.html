@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <title>RPS Game</title>
 </head>
 <body>
@@ -23,37 +32,56 @@
             <h3>Best of 5</h3>
 
             <h2 class="score">Score</h2>
-
-            <h1 class="rock">ROCK!</h1>
-            <h1 class="paper">PAPER!</h1>
-            <h1 class="scissors">SCISSORS!</h1>
-
             <h1 class="draw">Draw</h1>
-            <!-- make the zero dynamic in js -->
-            <h2 class="computer-score">Computer </h2>
-            <ul id="list-computer-choice">
 
-            </ul>
-            <h2 class="player-score">Player </h2>
-            <ul id="list-player-choice">
+            <div id="players">
+                <div class="computers-container">
+                    <h2 class="computer-score">Computer </h2>
+                </div>
 
-            </ul>
+                <div class="players-container">
+                    <h2 class="player-score">Player </h2>
+                </div>
+
+            </div>
+            <div class="players-result">
+                <div>
+                    <ul id="list-computer-choice"></ul>
+                </div>
+                <div>
+                    <ul id="list-player-choice"></ul>
+                </div>
+            </div>
+            
+
+            <!-- players button -->
+            <img src="svg/rockHand.png" class="player-rock" alt="rockHand"/>
+            <img src="svg/paperHand.png" class="player-paper" alt="paperHand"/>
+            <img src="svg/scissorsHand.png" class="player-scissors" alt="scissorsHand"/>
+    
+            <h1 class="computer-Winner">You LOSE! Try Again</h1>
+            <h1 class="player-Winner">You WIN!</h1>
+            <div class="msg-before-result">
+                <div>
+                    <h1 class="rock">ROCK!</h1>
+                </div>
+                <div>
+                    <h1 class="paper">PAPER!</h1>
+                </div>
+                <div>
+                    <h1 class="scissors">SCISSORS!</h1>
+                </div>
+            </div>
 
         </div>
-        
-        <!-- players button -->
-        <button class="player-rock">Rock</button>
-        <button class="player-paper">Paper</button>
-        <button class="player-scissors">Scissors</button>
-
-        <h1 class="computer-Winner">You LOSE! Try Again</h1>
-        <h1 class="player-Winner">You WIN!</h1>
+            <!-- make the zero dynamic in js -->
+       
     </main>
 
     <!-- Footer -->
-    <footer id="footer-container">
+    <!-- <footer id="footer-container">
 
-    </footer>
+    </footer> -->
 
 
 

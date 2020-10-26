@@ -62,7 +62,7 @@ const scissorsFunc = () => {
 }
 //logic to run the code after the rock paper scissors queue.
 const runRockLogic = (event) => {
-    playerSelection.textContent = "Rock"
+    playerSelection.textContent = "rock"
     computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
     game(event, null, null);
     document.querySelector(".computers-choice").style.visibility = "visible"

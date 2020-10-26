@@ -22,14 +22,21 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
 // restart computer score
     computer.textContent = score.computerScore = 0; 
 //refresh the data
-    document.querySelector(".computers-choice").style.visibility = "hidden"
-    document.querySelector(".players-choice").style.visibility = "hidden"
     document.querySelector(".player-Winner").style.visibility = "hidden"
     document.querySelector(".computer-Winner").style.visibility = "hidden"
     removeFunction();
     document.querySelector(".rock").style.visibility = "hidden"
     document.querySelector(".paper").style.visibility = "hidden"
     document.querySelector(".scissors").style.visibility = "hidden"
+// remove players choice
+    document.querySelector(".players-choice-rock").style.visibility = "hidden"
+    document.querySelector(".players-choice-paper").style.visibility = "hidden"
+    document.querySelector(".players-choice-scissors").style.visibility = "hidden"
+// remove computers choice
+    document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+    document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+    document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+
     });
 //checks the score for the winner
 const checkScore = () => {
@@ -47,9 +54,6 @@ TODO LIST
 document.querySelector(".rock").style.visibility = "hidden"
 document.querySelector(".paper").style.visibility = "hidden"
 document.querySelector(".scissors").style.visibility = "hidden"
-
-// The computers random selection
-const options = ["ROCK","PAPER","SCISSORS"]
   
 const rockFunc = () => {
     document.querySelector(".rock").style.visibility = "visible"
@@ -60,29 +64,80 @@ const paperFunc = () => {
 const scissorsFunc = () => {
     document.querySelector(".scissors").style.visibility = "visible"
 }
+
+//computers results
+let computerSelectionRock = document.querySelector(".computers-choice-rock")
+let computerSelectionPaper = document.querySelector(".computers-choice-paper")
+let computerSelectionScissors = document.querySelector(".computers-choice-scissors")
+
+// The computers random selection
+const options = [computerSelectionRock, computerSelectionPaper, computerSelectionScissors];
+
 //logic to run the code after the rock paper scissors queue.
 const runRockLogic = (event) => {
-    playerSelection.textContent = "rock"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(event, null, null);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
+    document.querySelector(".players-choice-rock").style.visibility = "visible"
+    document.querySelector(".players-choice-paper").style.visibility = "hidden"
+    document.querySelector(".players-choice-scissors").style.visibility = "hidden"
+//computer logic
+    let computerOption = options[Math.floor(Math.random() * options.length)]
+    if (computerOption === options[0]) {
+        document.querySelector(".computers-choice-rock").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else if (computerOption === options[1]) {
+        document.querySelector(".computers-choice-paper").style.visibility = "visible"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else {
+        document.querySelector(".computers-choice-scissors").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+    }
+    game(event, null, null, computerOption);
 }
 //run paper logic
 const runPaperLogic = (event) => {
-    playerSelection.textContent = "Paper"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(null, event, null);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
+    document.querySelector(".players-choice-paper").style.visibility = "visible"
+    document.querySelector(".players-choice-rock").style.visibility = "hidden"
+    document.querySelector(".players-choice-scissors").style.visibility = "hidden"
+//computer logic
+    let computerOption = options[Math.floor(Math.random() * options.length)]
+    if (computerOption === options[0]) {
+        document.querySelector(".computers-choice-rock").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else if (computerOption === options[1]) {
+        document.querySelector(".computers-choice-paper").style.visibility = "visible"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else {
+        document.querySelector(".computers-choice-scissors").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+    }
+    game(null, event, null, computerOption);
 }
 //run scissors logic
 const runScissorsLogic = (event) => {
-    playerSelection.textContent = "Scissors"
-    computerSelection.textContent = options[Math.floor(Math.random() * options.length)]
-    game(null, null, event);
-    document.querySelector(".computers-choice").style.visibility = "visible"
-    document.querySelector(".players-choice").style.visibility = "visible"
+    document.querySelector(".players-choice-scissors").style.visibility = "visible"
+    document.querySelector(".players-choice-paper").style.visibility = "hidden"
+    document.querySelector(".players-choice-rock").style.visibility = "hidden"
+// computer logic
+    let computerOption = options[Math.floor(Math.random() * options.length)]
+    if (computerOption === options[0]) {
+        document.querySelector(".computers-choice-rock").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else if (computerOption === options[1]) {
+        document.querySelector(".computers-choice-paper").style.visibility = "visible"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+        document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
+    } else {
+        document.querySelector(".computers-choice-scissors").style.visibility = "visible"
+        document.querySelector(".computers-choice-paper").style.visibility = "hidden"
+        document.querySelector(".computers-choice-rock").style.visibility = "hidden"
+    }
+    game(null, null, event, computerOption);
 }
 //hide the game msg
 const hideMsg = () => {
@@ -90,16 +145,6 @@ const hideMsg = () => {
     document.querySelector(".paper").style.visibility = "hidden"
     document.querySelector(".scissors").style.visibility = "hidden"
 }
-
-
-// create element for computer output
-let computerSelection = document.createElement("p");
-    computerSelection.setAttribute("class", "computers-choice")
-    document.querySelector("#list-computer-choice").append(computerSelection);
-
-let playerSelection = document.createElement("p");
-    playerSelection.setAttribute("class", "players-choice")
-    document.querySelector("#list-player-choice").append(playerSelection);
 
     
 // rock button, generates random computer logic
@@ -142,40 +187,40 @@ const removeFunction = () => {
     document.querySelector(".draw").style.visibility = "hidden"
 }
 
-const game = (rock, paper, scissors) => {
+const game = (rock, paper, scissors, computerOption) => {
      // functionality for duplicate choices
-    if (computerSelection.textContent === options[0] && rock) {
+    if (computerOption === options[0] && rock) {
         document.querySelector(".draw").style.visibility = "visible"
 
-    } else if (computerSelection.textContent === options[1] && paper) {
+    } else if (computerOption === options[1] && paper) {
         document.querySelector(".draw").style.visibility = "visible"
 
-    } else if (computerSelection.textContent === options[2] && scissors) {
+    } else if (computerOption === options[2] && scissors) {
         document.querySelector(".draw").style.visibility = "visible"
     } 
 
     // functionality for the game
-    if(computerSelection.textContent === options[0] && paper) {
+    if(computerOption === options[0] && paper) {
         player.textContent = score.playerScore++ + 1;
         removeFunction();
         checkScore();
-    } if (computerSelection.textContent === options[0] && scissors) {
+    } if (computerOption === options[0] && scissors) {
         computer.textContent = score.computerScore++ + 1
         removeFunction();
         checkScore();
-    } if (computerSelection.textContent === options[1] && rock) {
+    } if (computerOption === options[1] && rock) {
         computer.textContent = score.computerScore++ + 1
         removeFunction();
         checkScore();
-    } if (computerSelection.textContent === options[1] && scissors) {
+    } if (computerOption === options[1] && scissors) {
         player.textContent = score.playerScore++ + 1
         removeFunction();
         checkScore();
-    } if (computerSelection.textContent === options[2] && rock) {
+    } if (computerOption === options[2] && rock) {
         player.textContent = score.playerScore++ + 1
         removeFunction();
         checkScore();
-    } if (computerSelection.textContent === options[2] && paper) {
+    } if (computerOption === options[2] && paper) {
         computer.textContent = score.computerScore++ + 1
         removeFunction();
         checkScore();

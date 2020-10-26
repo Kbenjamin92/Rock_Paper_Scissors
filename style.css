@@ -32,9 +32,12 @@
 
     .computer-score {
         font-size: 25px;
+        padding-right: 20px;
+
     }
     .player-score {
         font-size: 25px;
+        padding-right: 20px;
     }
     #players {
         display: flex;
@@ -89,6 +92,24 @@
         background-color: #37c86a;
         box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 
+    }
+    .players-choice-rock {
+        visibility: hidden;
+    }
+    .players-choice-paper {
+        visibility: hidden;
+    }
+    .players-choice-scissors {
+        visibility: hidden;
+    }
+    .computers-choice-rock {
+        visibility: hidden;
+    }
+    .computers-choice-paper {
+        visibility: hidden;
+    }
+    .computers-choice-scissors {
+        visibility: hidden;
     }
     .msg-before-result {
         display: flex;

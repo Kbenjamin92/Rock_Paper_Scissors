@@ -28,16 +28,18 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
     document.querySelector(".rock").style.visibility = "hidden"
     document.querySelector(".paper").style.visibility = "hidden"
     document.querySelector(".scissors").style.visibility = "hidden"
-// remove players choice
-    document.querySelector(".players-choice-rock").style.visibility = "hidden"
-    document.querySelector(".players-choice-paper").style.visibility = "hidden"
-    document.querySelector(".players-choice-scissors").style.visibility = "hidden"
-// remove computers choice
+
     document.querySelector(".computers-choice-rock").style.visibility = "hidden"
     document.querySelector(".computers-choice-paper").style.visibility = "hidden"
     document.querySelector(".computers-choice-scissors").style.visibility = "hidden"
 
-    });
+    document.querySelector(".players-choice-rock").style.visibility = "hidden"
+    document.querySelector(".players-choice-paper").style.visibility = "hidden"
+    document.querySelector(".players-choice-scissors").style.visibility = "hidden"
+
+
+
+});
 //checks the score for the winner
 const checkScore = () => {
     if (score.computerScore >= 3) {
@@ -51,9 +53,12 @@ const checkScore = () => {
 TODO LIST 
 
 */ 
-document.querySelector(".rock").style.visibility = "hidden"
-document.querySelector(".paper").style.visibility = "hidden"
-document.querySelector(".scissors").style.visibility = "hidden"
+// document.querySelector(".player-Winner").style.visibility = "visible"
+// document.querySelector(".computer-Winner").style.visibility = "visible"
+
+// document.querySelector(".rock").style.visibility = "visible"
+// document.querySelector(".paper").style.visibility = "visible"
+// document.querySelector(".scissors").style.visibility = "visible"
   
 const rockFunc = () => {
     document.querySelector(".rock").style.visibility = "visible"
@@ -94,6 +99,7 @@ const runRockLogic = (event) => {
         document.querySelector(".computers-choice-rock").style.visibility = "hidden"
     }
     game(event, null, null, computerOption);
+
 }
 //run paper logic
 const runPaperLogic = (event) => {
@@ -156,6 +162,7 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
     setTimeout(function () {
         runRockLogic(e)
     }, 4000);
+    gsap.to(".players-choice-rock", {duration: 2, x:100})
 
 });
 // papers button, generates random computer logic

@@ -6,9 +6,15 @@
 }
 
 @media (min-width: 200px) {
+    body {
+        background-image: url("svg/Particles.svg");
+    }
     nav {
         text-align: center;
         margin: 2% 2% 2% 2%;
+    }
+    #list-computer-choice {
+        padding-left: 0px;
     }
     .restart {
         margin: 2% 0px 2% 0px;
@@ -48,7 +54,7 @@
     }
     .players-result {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
         padding-top: 10px;
         font-size: large;
     }
@@ -67,7 +73,7 @@
         background-color: #fd0240;
         color: white;
         padding: 7px 7px 4px 7px;
-        box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
+        box-shadow: -2px 6px 5px 0px rgba(206, 141, 141, 0.29);
     }
     .player-rock {
         border: solid 2px transparent;
@@ -76,7 +82,8 @@
         background-color: #009bff;
         box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 
-    }
+    }  
+    /* #fd0240 */
     .player-paper {
         border: solid 2px transparent;
         border-radius: 40px;
@@ -124,17 +131,24 @@
     }
     .computer-Winner {
         visibility: hidden;
+        font-size: 25px;
+        padding-top: 15px;
+        padding-bottom: 8px;
     }
     .player-Winner {
         visibility: hidden;
+        font-size: 27px;
     }
     .rock {
         visibility: hidden;
+        font-size: 27px;
     }
     .paper {
         visibility: hidden;
+        font-size: 27px;
     }
     .scissors {
         visibility: hidden;
+        font-size: 27px;
     }
 }

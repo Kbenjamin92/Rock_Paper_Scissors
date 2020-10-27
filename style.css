@@ -6,26 +6,26 @@
 }
 .computer-Winner {
     visibility: hidden;
-    font-size: 70px;
+    font-size: 50px;
     padding-top: 15px;
     padding-bottom: 8px;
 }
 .player-Winner {
     visibility: hidden;
-    font-size: 70px;
+    font-size: 50px;
 }
 
 .rock {
     visibility: hidden;
-    font-size: 70px;
+    font-size: 50px;
 }
 .paper {
     visibility: hidden;
-    font-size: 70px;
+    font-size: 50px;
 }
 .scissors {
     visibility: hidden;
-    font-size: 70px;
+    font-size: 50px;
 }
     body {
         background-image: url("svg/Particles.svg");
@@ -103,7 +103,15 @@
         background-color: #009bff;
         box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 
-    }  
+    }
+    .player-rock:hover {
+        border: solid 2px transparent;
+        border-radius: 20px;
+        transition-duration: 500ms;
+        padding: 7px;
+        background-color: #009bff;
+        box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
+    }    
     /* #fd0240 */
     .player-paper {
         border: solid 2px transparent;
@@ -111,7 +119,14 @@
         padding: 7px;
         background-color: #fd0240;
         box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
-
+    }
+    .player-paper:hover {
+        border: solid 2px transparent;
+        border-radius: 20px;
+        transition-duration: 500ms;
+        padding: 7px;
+        background-color: #fd0240;
+        box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
     }
     .player-scissors {
         border: solid 2px transparent;
@@ -119,7 +134,14 @@
         padding: 7px;
         background-color: #37c86a;
         box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
-
+    }
+    .player-scissors:hover {
+        border: solid 2px transparent;
+        border-radius: 20px;
+        transition-duration: 500ms;
+        padding: 7px;
+        background-color: #37c86a;
+        box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
     }
     .players-choice-rock {
         visibility: hidden;
@@ -136,7 +158,6 @@
     .computers-choice-rock {
         visibility: hidden;
         height: 70px
-
     }
     .computers-choice-paper {
         visibility: hidden; 
@@ -158,6 +179,10 @@
         visibility: hidden;
     }
     @media (max-width: 500px) {
+    .title {
+        font-size: 27px;
+        border-bottom: solid 1px #dfdfdf;
+    }
 
     .computer-Winner {
         visibility: hidden;
@@ -208,4 +233,4 @@
         height: 45px
     }
 }
-/* } */
+

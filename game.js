@@ -130,9 +130,9 @@ const runPaperLogic = (event) => {
     gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "bounce"});
     gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "bounce"});
     // animation for player results
-    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "bounce"});
-    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "bounce"});
-    gsap.from(".players-choice-scissors", {duration: .5 , x: -20, ease: "bounce"});
+    gsap.from(".players-choice-rock", {duration: 1.5,  x: -50, ease: "bounce"});
+    gsap.from(".players-choice-paper", {duration: 1.5,  x: -50, ease: "bounce"});
+    gsap.from(".players-choice-scissors", {duration: .5 , x: -50, ease: "bounce"});
 
 
     document.querySelector(".players-choice-paper").style.visibility = "visible"

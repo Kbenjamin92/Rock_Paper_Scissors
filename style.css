@@ -1,11 +1,32 @@
 * {
     font-family: 'Grandstander', cursive;
-    /* margin: 2% 5% 5% 2%; */
-    /* text-align: center; */
-
+}
+.title {
+    font-size: 70px;
+}
+.computer-Winner {
+    visibility: hidden;
+    font-size: 70px;
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+.player-Winner {
+    visibility: hidden;
+    font-size: 70px;
 }
 
-@media (min-width: 200px) {
+.rock {
+    visibility: hidden;
+    font-size: 70px;
+}
+.paper {
+    visibility: hidden;
+    font-size: 70px;
+}
+.scissors {
+    visibility: hidden;
+    font-size: 70px;
+}
     body {
         background-image: url("svg/Particles.svg");
     }
@@ -54,7 +75,7 @@
     }
     .players-result {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-evenly;
         padding-top: 10px;
         font-size: large;
     }
@@ -102,33 +123,42 @@
     }
     .players-choice-rock {
         visibility: hidden;
+        height: 70px
     }
     .players-choice-paper {
         visibility: hidden;
+        height: 70px
     }
     .players-choice-scissors {
         visibility: hidden;
+        height: 70px
     }
     .computers-choice-rock {
         visibility: hidden;
+        height: 70px
+
     }
     .computers-choice-paper {
-        visibility: hidden;
+        visibility: hidden; 
+        height: 70px
     }
     .computers-choice-scissors {
         visibility: hidden;
+        height: 70px
     }
     .msg-before-result {
         display: flex;
         justify-content: space-evenly;
     }
     .title {
-        font-size: 25px;
+        font-size: 60px;
         border-bottom: solid 1px #dfdfdf;
     }
     .draw {
         visibility: hidden;
     }
+    @media (max-width: 500px) {
+
     .computer-Winner {
         visibility: hidden;
         font-size: 25px;
@@ -139,16 +169,43 @@
         visibility: hidden;
         font-size: 27px;
     }
+
     .rock {
         visibility: hidden;
-        font-size: 27px;
+        font-size: 28px;
     }
     .paper {
         visibility: hidden;
-        font-size: 27px;
+        font-size: 28px;
     }
     .scissors {
         visibility: hidden;
-        font-size: 27px;
+        font-size: 28px;
+    }
+    .players-choice-rock {
+        visibility: hidden;
+        height: 45px
+    }
+    .players-choice-paper {
+        visibility: hidden;
+        height: 45px
+    }
+    .players-choice-scissors {
+        visibility: hidden;
+        height: 45px
+    }
+    .computers-choice-rock {
+        visibility: hidden;
+        height: 45px
+
+    }
+    .computers-choice-paper {
+        visibility: hidden; 
+        height: 45px
+    }
+    .computers-choice-scissors {
+        visibility: hidden;
+        height: 45px
     }
 }
+/* } */

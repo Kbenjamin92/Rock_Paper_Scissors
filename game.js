@@ -67,11 +67,6 @@ const checkScore = () => {
         gsap.from(".player-Winner", {duration: 1,  x: 90, ease: "bounce"})
     }
 }
-
-/*
-TODO LIST 
-
-*/ 
   
 const rockFunc = () => {
     document.querySelector(".rock").style.visibility = "visible"
@@ -98,13 +93,13 @@ const options = [computerSelectionRock, computerSelectionPaper, computerSelectio
 //logic to run the code after the rock paper scissors queue.
 const runRockLogic = (event) => {
     //animation for the results
-    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "back"});
+    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "bounce"});
     // animation for player resuls
-    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-scissors", {duration: 1.5,  x: -20, ease: "back"});
+    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-scissors", {duration: 1.5,  x: -20, ease: "bounce"});
 
 
     document.querySelector(".players-choice-rock").style.visibility = "visible"
@@ -131,13 +126,13 @@ const runRockLogic = (event) => {
 //run paper logic
 const runPaperLogic = (event) => {
     //animation for computer results
-    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "back"});
+    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "bounce"});
     // animation for player results
-    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-scissors", {duration: .5 , x: -20, ease: "back"});
+    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-scissors", {duration: .5 , x: -20, ease: "bounce"});
 
 
     document.querySelector(".players-choice-paper").style.visibility = "visible"
@@ -163,13 +158,13 @@ const runPaperLogic = (event) => {
 //run scissors logic
 const runScissorsLogic = (event) => {
     //animation for computer result
-    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "back"});
-    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "back"});
+    gsap.from(".computers-choice-rock", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-paper", {duration: 1.5,  x: 80, ease: "bounce"});
+    gsap.from(".computers-choice-scissors", {duration: 1.5,  x: 80, ease: "bounce"});
     //animation for player results
-    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "back"});
-    gsap.from(".players-choice-scissors", {duration: 1.5,  x: -20, ease: "back"});
+    gsap.from(".players-choice-rock", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-paper", {duration: 1.5,  x: -20, ease: "bounce"});
+    gsap.from(".players-choice-scissors", {duration: 1.5,  x: -20, ease: "bounce"});
 
     document.querySelector(".players-choice-scissors").style.visibility = "visible"
     document.querySelector(".players-choice-paper").style.visibility = "hidden"

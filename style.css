@@ -5,40 +5,43 @@ body {
     background-image: url("svg/Particles.svg");
 }
 .title {
-    font-size: 70px;
+    font-size: 50px;
 }
 .computer-Winner {
     visibility: hidden;
-    font-size: 50px;
-    padding-top: 15px;
-    padding-bottom: 8px;
+    font-size: 40px;
+    margin: 0px;
+
 }
 .player-Winner {
     visibility: hidden;
-    font-size: 50px;
+    font-size: 40px;
+    margin: 0px;
 }
-
 .rock {
     visibility: hidden;
     font-size: 50px;
+    margin: 0px;
 }
 .paper {
     visibility: hidden;
     font-size: 50px;
+    margin: 0px;
 }
 .scissors {
     visibility: hidden;
     font-size: 50px;
+    margin: 0px;
 }
 .player-point {
-    font-size: 50px;
+    font-size: 80px;
 }
 .computer-point {
-    font-size: 50px;
+    font-size: 80px;
 }
 nav {
     text-align: center;
-    margin: 2% 2% 2% 2%;
+    margin: 2% 2% 0% 2%;
 }
 #list-computer-choice {
     padding-left: 0px;
@@ -49,7 +52,8 @@ nav {
     border: transparent;
     border-radius: 5px;
     color: white;
-    padding: 7px;
+    padding: 12px;
+    font-size: 20px;
     outline: none;
     box-shadow: -4px 5px 8px 0px rgba(50, 50, 50, 0.19);
 }
@@ -104,6 +108,7 @@ nav {
     border: solid 2px transparent;
     border-radius: 40px;
     padding: 7px;
+    margin-bottom: 25px;
     background-color: #009bff;
     box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 
@@ -121,6 +126,7 @@ nav {
     border: solid 2px transparent;
     border-radius: 40px;
     padding: 7px;
+    margin-bottom: 25px;
     background-color: #fd0240;
     box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 }
@@ -136,6 +142,7 @@ nav {
     border: solid 2px transparent;
     border-radius: 40px;
     padding: 7px;
+    margin-bottom: 25px;
     background-color: #37c86a;
     box-shadow: -2px 6px 5px 0px rgba(50, 50, 50, 0.19);
 }
@@ -189,10 +196,10 @@ nav {
 }
 
 .player-point {
-    font-size: 30px;
+    font-size: 50px;
 }
 .computer-point {
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .computer-Winner {
@@ -244,11 +251,11 @@ nav {
     height: 45px
     }
 .computer-score {
-    font-size: 25px;
+    font-size: 19px;
     padding: 5px;
 }
 .player-score {
-    font-size: 25px;
+    font-size: 19px;
     padding: 5px;
 }
 }

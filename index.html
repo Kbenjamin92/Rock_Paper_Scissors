@@ -20,6 +20,9 @@
     <nav>
         <div id="title-container">
             <h1 class="title">Rock Paper Scissors Game</h1>
+            <h1 class="player-Winner">You WIN! </h1> 
+            <h1 class="computer-Winner">You LOSE! Try Again</h1>
+
         </div>
     </nav>
 
@@ -28,19 +31,30 @@
         <!-- score -->
         <div id="score-container">
              <!-- Restart Game -->
+            <div class="msg-before-result">
+                <div>
+                    <h1 class="rock">ROCK!</h1>
+                </div>
+                <div>
+                    <h1 class="paper">PAPER!</h1>
+                </div>
+                <div>
+                    <h1 class="scissors">SCISSORS!</h1>
+                </div>
+            </div>
             <button class="restart">Start New Game</button>
-            <h3>Best of 5</h3>
+            <h2>Best of 5</h2>
 
-            <h2 class="score">Score</h2>
+            <h2 class="score"></h2>
             <h1 class="draw">Draw</h1>
 
             <div id="players">
                 <div class="computers-container">
-                    <h2 class="computer-score">Computer </h2>
+                    <h2 class="computer-score">Computer Score </h2>
                 </div>
 
                 <div class="players-container">
-                    <h2 class="player-score">Player </h2>
+                    <h2 class="player-score">Player Score </h2>
                 </div>
 
             </div>
@@ -61,36 +75,17 @@
                     </ul>
                 </div>
             </div>
-            
-
+        
             <!-- players button -->
             <img src="svg/rockHand.png" class="player-rock" alt="rockHand"/>
             <img src="svg/paperHand.png" class="player-paper" alt="paperHand"/>
             <img src="svg/scissorsHand.png" class="player-scissors" alt="scissorsHand"/>
-    
-            <h1 class="computer-Winner">You LOSE! Try Again</h1>
-            <h1 class="player-Winner">You WIN!</h1>
-            <div class="msg-before-result">
-                <div>
-                    <h1 class="rock">ROCK!</h1>
-                </div>
-                <div>
-                    <h1 class="paper">PAPER!</h1>
-                </div>
-                <div>
-                    <h1 class="scissors">SCISSORS!</h1>
-                </div>
-            </div>
+
 
         </div>
             <!-- make the zero dynamic in js -->
        
     </main>
-
-    <!-- Footer -->
-    <!-- <footer id="footer-container">
-
-    </footer> -->
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>

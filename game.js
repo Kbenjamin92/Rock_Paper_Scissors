@@ -7,13 +7,13 @@ let score = {
 let player = document.createElement("span");
 player.setAttribute("class", "player-point");
 player.textContent = score.playerScore
-document.querySelector(".player-score").append(player);
+document.querySelector(".players-container").prepend(player);
 
 // computer score
 let computer = document.createElement("span");
 computer.setAttribute("class", "computer-point");
 computer.textContent = score.computerScore
-document.querySelector(".computer-score").append(computer);
+document.querySelector(".computers-container").prepend(computer);
 
 // Restart the game option which returns the score to 0
 const restartGame = document.querySelector(".restart").addEventListener("click", () => {

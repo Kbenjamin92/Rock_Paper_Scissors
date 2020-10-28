@@ -203,7 +203,6 @@ const rock = document.querySelector(".player-rock").addEventListener("click", (e
     setTimeout(function () {
         runRockLogic(e)
     }, 4000);
-    gsap.to(".players-choice-rock", {duration: 2, x:100})
 
 });
 // papers button, generates random computer logic

@@ -37,6 +37,10 @@ const restartGame = document.querySelector(".restart").addEventListener("click",
     document.querySelector(".players-choice-paper").style.visibility = "hidden"
     document.querySelector(".players-choice-scissors").style.visibility = "hidden"
 
+    document.querySelector(".player-rock").style.visibility = "visible"
+    document.querySelector(".player-paper").style.visibility = "visible"
+    document.querySelector(".player-scissors").style.visibility = "visible"
+
 });
 
 //load animations
@@ -62,9 +66,16 @@ const checkScore = () => {
     if (score.computerScore >= 3) {
         document.querySelector(".computer-Winner").style.visibility = "visible"
         gsap.from(".computer-Winner", {duration: 1,  x: 90, ease: "bounce"})
+        document.querySelector(".player-rock").style.visibility = "hidden"
+        document.querySelector(".player-paper").style.visibility = "hidden"
+        document.querySelector(".player-scissors").style.visibility = "hidden"
+
     } else if (score.playerScore >= 3) {
         document.querySelector(".player-Winner").style.visibility = "visible"
         gsap.from(".player-Winner", {duration: 1,  x: 90, ease: "bounce"})
+        document.querySelector(".player-rock").style.visibility = "hidden"
+        document.querySelector(".player-paper").style.visibility = "hidden"
+        document.querySelector(".player-scissors").style.visibility = "hidden"
     }
 }
   
